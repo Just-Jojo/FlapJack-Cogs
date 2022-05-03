@@ -22,8 +22,8 @@ class Smite(commands.Cog):
         self.url_pc = 'http://api.smitegame.com/smiteapi.svc'
         self.header = {"User-Agent": "flapjackcogs/1.0"}
 
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
+    async def cog_unload(self):
+        await self.session.close()
 
     async def red_delete_data_for_user(
         self, *, requester: Literal["discord", "owner", "user", "user_strict"], user_id: int

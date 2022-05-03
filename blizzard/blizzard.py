@@ -69,8 +69,8 @@ class Blizzard(commands.Cog):
         self.expired_embed = discord.Embed(title="This menu has exipred due "
                                            "to inactivity.")
 
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
+    async def cog_unload(self):
+        await self.session.close()
 
     async def red_delete_data_for_user(self, **kwargs):
         """Nothing to delete."""

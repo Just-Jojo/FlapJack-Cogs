@@ -35,5 +35,5 @@ class Dongers(commands.Cog):
         except:
             await ctx.send("I couldn't find any dongers. ¯\_(ツ)_/¯")
 
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
+    async def cog_unload(self):
+        await self.session.close()

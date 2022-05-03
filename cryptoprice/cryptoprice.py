@@ -15,8 +15,8 @@ class CryptoPrice(commands.Cog):
         self.base_url = "https://coinmarketcap.com/"
         self.session = aiohttp.ClientSession()
 
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
+    async def cog_unload(self):
+        await self.session.close()
 
     async def red_delete_data_for_user(self, **kwargs):
         """Nothing to delete."""

@@ -177,7 +177,7 @@ class Poll:
         if self.duration:
             end = "| ends at"
         em.set_footer(
-            text=f"{self.author} created a poll {end}", icon_url=str(self.author.avatar_url),
+            text=f"{self.author} created a poll {end}", icon_url=str(getattr(self.author.avatar, "url", self.author.default_avatar)),
         )
         if self.end_time:
             em.timestamp = self.end_time

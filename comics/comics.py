@@ -21,8 +21,8 @@ class Comics(commands.Cog):
         self.session = aiohttp.ClientSession()
         self._headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0"}
 
-    def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
+    async def cog_unload(self):
+        await self.session.close()
 
     async def red_delete_data_for_user(self, **kwargs):
         """Nothing to delete."""
